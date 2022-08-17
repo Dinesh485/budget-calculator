@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import Button from "../../ui/button"
+
 
 const Item = ({item,index, updateList}) => {
   const inputE1 = useRef(null)
@@ -48,22 +48,22 @@ const Item = ({item,index, updateList}) => {
     }
 
     return ( 
-        <div className  = "grid grid-cols-3 justify-items-center p-2  px-4 rounded border bg-white mb-2">
-             <input ref = {inputE1} type="text" value  ={name} onChange = {(e) => setName(e.target.value)}className = "   w-11/12 mx-auto text-center font-medium block outline-none pointer-events-none" />
+        <div className  = "grid grid-cols-3 justify-items-center py-2   rounded border-b bg-gray-100 mb-2 ">
+             <input ref = {inputE1} type="text" value  ={name} onChange = {(e) => setName(e.target.value)}className = "  mx-auto  font-medium block focus:outline-none pointer-events-none bg-transparent border-0 lg:text-lg  text-left " />
              <div>
-               <input ref = {inputE2} type="text" value  ={'$'+amount} onChange = {(e) => setAmount(e.target.value)}className = "w-11/12 mx-auto text-center font-medium block outline-none pointer-events-none" />
+               <input ref = {inputE2} type="text" value  ={'$'+amount} onChange = {(e) => setAmount(e.target.value)}className = "w-11/12 mx-auto text-center font-medium block focus:outline-none pointer-events-none bg-transparent border-0  lg:text-lg   " />
              </div>
-             <div className = "flex items-center">
-               <button className = 'w-[17px] text-red-400 mr-3' onClick = {deleteThis}>
+             <div className = "flex items-center ml-auto">
+               <button className = 'w-[17px] text-gray-900/90 mr-3' onClick = {deleteThis}>
                <svg xmlns="http://www.w3.org/2000/svg"  className = 'w-full stroke-current' fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 </svg>
                </button >
-               {!editMode ?  <button className = 'w-[17px] text-green-500' onClick = {editThis}>
+               {!editMode ?  <button className = 'w-[17px] text-grgray-900/90' onClick = {editThis}>
                <svg xmlns="http://www.w3.org/2000/svg" className = 'w-full stroke-current' fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
 </svg>
-               </button> :<a href = '/' onClick = {doneEdit}> <Button extend = 'lowercase py-[2px] px-[10px] mt-0'>done</Button></a>}
+               </button> :<a href = '/' onClick = {doneEdit}> <button className = 'lowercase py-[2px] px-[10px] mt-0'>done</button></a>}
              </div>
         </div>
      );

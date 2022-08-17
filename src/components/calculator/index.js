@@ -1,22 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./input";
 import List from "./list";
 import Total from "./total";
 
 const Calculator = () => {
     
-    const [list, updateList] = useState([])
-
+    const [list, updateList] = useState(JSON.parse(localStorage.getItem('list')))
+  
+     useEffect(() =>{
+            localStorage.setItem('list', JSON.stringify(list))
+     },[list])
     
     return ( 
 
 
-        <div className ='bg-gray-100/20 shadow-lg rounded-lg max-w-[500px] mx-auto mt-10 p-5 px-7 '>
-            <h1 className = 'font-bold text-2xl mb-4 text-red-500'><span className = 'text-blue-500'>Budget</span> Calculator</h1>
+        <div className ='mx-auto  p-5  rounded-xl relative h-full flex flex-col max-w-[1200px]'>
+            <h1 className = ' text-3xl mb-4 text-gray-900/90 xl:text-5xl'><span >Budget</span> Calculator</h1>
             <Input updateList = {updateList}/>
-
             <List list = {list} updateList = {updateList}/>
-
             <Total list = {list}/>
         </div>
      );
